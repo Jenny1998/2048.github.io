@@ -220,7 +220,6 @@ class Game {
   getNewBoard(size) {
     let arr = new Array(size * size);
     arr.fill(0);
-    // arr = [0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 0, 0, 0, 0];
     arr = this.addRandomTile(this.addRandomTile(arr));
     return arr;
   }
@@ -322,7 +321,7 @@ function update() {
       ctx.fillStyle = "#664033";
       ctx.textAlign = "center";
       ctx.font = "40px 'Arial'";
-      ctx.fillText("You Won! ", 240, 240);
+      ctx.fillText("Love you Mr. Miner 😘", 240, 240);
     }, 800);
   } else if (game.over) {
     setTimeout(function() {
@@ -334,7 +333,7 @@ function update() {
       ctx.fillText("Try again! ", 240, 240);
     }, 800);
   }
-  $("#score").html("Score : " + game.score);
+  $("#score").html(game.score);
 }
 $(document).keydown(function(event) {
   if (game.over || game.won) {
