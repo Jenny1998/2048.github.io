@@ -50,7 +50,7 @@ class Game {
       result = result + "\n";
       // process.stdout.write("\n");
     }
-    // console.log(this.score);
+
     return result;
   }
 
@@ -186,19 +186,19 @@ class Game {
   move(direction) {
     switch (direction) {
       case "left":
-        console.log("Moving Left!");
+        // console.log("Moving Left!");
         this.moveLeft();
         break;
       case "right":
-        console.log("Moving Right!");
+        // console.log("Moving Right!");
         this.moveRight();
         break;
       case "up":
-        console.log("Moving Up!");
+        // console.log("Moving Up!");
         this.moveUp();
         break;
       case "down":
-        console.log("Moving Down!");
+        // console.log("Moving Down!");
         this.moveDown();
         break;
       default:
@@ -252,7 +252,7 @@ let ctx = canvas.getContext("2d");
 update();
 
 $("#restart").click(function() {
-  console.log("clicked");
+
   game.setupNewGame();
   update();
 });
