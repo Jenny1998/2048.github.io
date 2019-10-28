@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>2048</title>
+
+    <style type="text/css">
+      #canvas {
+        background: #a9a9a9;
+      }
+    </style>
+  </head>
+  <body class="text-center">
+    <h1 class="text-warning">Our Beloved 2048</h1>
+    <p class="text-info" id="score">Score: 0</p>
+    <div id="canvas-block">
+      <canvas id="canvas" width="480" height="480"></canvas>
+    </div>
+    <button id="restart" class="btn-lg btn-primary">restart</button>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./engine/game.js" type="module"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>
