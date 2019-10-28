@@ -186,7 +186,6 @@ class Game {
   move(direction) {
     switch (direction) {
       case "left":
-        // console.log("Moving Left!");
         this.moveLeft();
         break;
       case "right":
