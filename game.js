@@ -220,6 +220,7 @@ class Game {
   getNewBoard(size) {
     let arr = new Array(size * size);
     arr.fill(0);
+    // arr = [0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 0, 0, 0, 0];
     arr = this.addRandomTile(this.addRandomTile(arr));
     return arr;
   }
@@ -243,7 +244,6 @@ class Game {
   }
 }
 
-
 let game = new Game(4);
 
 // console.log(game.board);
@@ -263,37 +263,37 @@ function drawCell(val, x, y) {
       ctx.fillStyle = "#9E9E9E";
       break;
     case 2:
-      ctx.fillStyle = "#D2691E";
+      ctx.fillStyle = "#e3d9c6";
       break;
     case 4:
-      ctx.fillStyle = "#FF7F50";
+      ctx.fillStyle = "#FFBC39";
       break;
     case 8:
-      ctx.fillStyle = "#ffbf00";
+      ctx.fillStyle = "#f67828";
       break;
     case 16:
-      ctx.fillStyle = "#bfff00";
+      ctx.fillStyle = "#FFDD9A";
       break;
     case 32:
-      ctx.fillStyle = "#40ff00";
+      ctx.fillStyle = "#cb8e00";
       break;
     case 64:
-      ctx.fillStyle = "#00bfff";
+      ctx.fillStyle = "#cb7375";
       break;
     case 128:
       ctx.fillStyle = "#FF7F50";
       break;
     case 256:
-      ctx.fillStyle = "#0040ff";
+      ctx.fillStyle = "#f1dd38";
       break;
     case 512:
-      ctx.fillStyle = "#ff0080";
+      ctx.fillStyle = "#f99a1c";
       break;
     case 1024:
       ctx.fillStyle = "#D2691E";
       break;
     case 2048:
-      ctx.fillStyle = "#FF7F50";
+      ctx.fillStyle = "yellow";
       break;
     default:
       ctx.fillStyle = "#ff0080";
@@ -308,26 +308,30 @@ function update() {
       ctx.fillStyle = "#664033";
       ctx.font = "40px monospace";
       ctx.textAlign = "center";
+      if (game.board[i * 4 + j] == 0) {
+        continue;
+      }
       ctx.fillText(game.board[i * 4 + j], 60 + 120 * j, 70 + 120 * i);
     }
   }
   if (game.won) {
     setTimeout(function() {
-      ctx.clearRect(0, 0, 480, 480);
-      ctx.fillStyle = "rgba(255, 165, 0,1)";
+      // ctx.clearRect(0, 0, 480, 480);
+      ctx.fillStyle = "rgba(255, 165,0,0.7)";
       ctx.fillRect(0, 0, 480, 480);
-      ctx.fillStyle = "red";
+      ctx.fillStyle = "#664033";
       ctx.textAlign = "center";
+      ctx.font = "40px 'Arial'";
       ctx.fillText("You Won! ", 240, 240);
     }, 800);
   } else if (game.over) {
     setTimeout(function() {
-      ctx.clearRect(0, 0, 480, 480);
-      ctx.fillStyle = "##bf6437";
+      ctx.fillStyle = "rgba(255, 165,0,0.7)";
       ctx.fillRect(0, 0, 480, 480);
-      ctx.fillStyle = "black";
+      ctx.fillStyle = "#664033";
       ctx.textAlign = "center";
-      ctx.fillText("You Lost! ", 240, 240);
+      ctx.font = "40px 'Arial'";
+      ctx.fillText("Try again! ", 240, 240);
     }, 800);
   }
   $("#score").html("Score : " + game.score);
