@@ -1,5 +1,8 @@
-import Game from "./engine/game.js";
+import Game from "game.js";
 
+$(document).ready(function() {
+  alert("hi");
+});
 let game = new Game(4);
 
 // console.log(game.board);
@@ -16,40 +19,40 @@ $("#restart").click(function() {
 function drawCell(val, x, y) {
   switch (val) {
     case 0:
-      ctx.fillStyle = "#9E9E9E";
+      ctx.fillStyle = "#FFDD9A";
       break;
     case 2:
-      ctx.fillStyle = "#D2691E";
+      ctx.fillStyle = "#FFCA63";
       break;
     case 4:
-      ctx.fillStyle = "#FF7F50";
+      ctx.fillStyle = "#FFBC39";
       break;
     case 8:
-      ctx.fillStyle = "#ffbf00";
+      ctx.fillStyle = "#FFA900";
       break;
     case 16:
-      ctx.fillStyle = "#bfff00";
+      ctx.fillStyle = "#C58200";
       break;
     case 32:
-      ctx.fillStyle = "#40ff00";
+      ctx.fillStyle = "#CB6600";
       break;
     case 64:
-      ctx.fillStyle = "#00bfff";
+      ctx.fillStyle = "#FFB119";
       break;
     case 128:
-      ctx.fillStyle = "#FF7F50";
+      ctx.fillStyle = "#FFA900";
       break;
     case 256:
-      ctx.fillStyle = "#0040ff";
+      ctx.fillStyle = "#FFD200";
       break;
     case 512:
-      ctx.fillStyle = "#ff0080";
+      ctx.fillStyle = "#FF158";
       break;
     case 1024:
-      ctx.fillStyle = "#D2691E";
+      ctx.fillStyle = "#FF7F19";
       break;
     case 2048:
-      ctx.fillStyle = "#FF7F50";
+      ctx.fillStyle = "#FF100";
       break;
     default:
       ctx.fillStyle = "#ff0080";
@@ -88,6 +91,7 @@ function update() {
   }
   $("#score").html("Score : " + game.score);
 }
+
 $(document).keydown(function(event) {
   if (game.over || game.won) {
     return;
